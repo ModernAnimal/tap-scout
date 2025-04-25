@@ -32,8 +32,10 @@ def stream(scout_url, api_key, appointment_ids):
                 "appointment_id": appointment_id,
                 "procedures": case.get("procedures"),
                 "staff": case.get("staff"),
-                "additional_medication": case.get("additionalMedication"),
-                "anesthetic_gases": case.get("anestheticGases"),
+                "additional_medication": patient_data.get(
+                    "additionalMedication"
+                ),
+                "anesthetic_gases": patient_data.get("anestheticGases"),
                 "birthdate": patient_data.get("birthdate"),
                 "breed": patient_data.get("breed"),
                 "dental_chartings": patient_data.get("dentalChartings"),
