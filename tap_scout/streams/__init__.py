@@ -1,1 +1,1 @@
-from . import cases
+from . import scout_cases
