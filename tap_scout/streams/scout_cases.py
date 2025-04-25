@@ -27,7 +27,7 @@ def stream(scout_url, api_key, appointment_ids):
         patient_data = case.get("patient")
 
         singer.write_record(
-            "scout_patient_details",
+            "scout_cases",
             {
                 "appointment_id": appointment_id,
                 "procedures": case.get("procedures"),
