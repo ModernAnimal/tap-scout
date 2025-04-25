@@ -1,0 +1,160 @@
+{
+    "properties": {
+        "appointment_id": {"type": "string"},
+        "procedures": {
+            "type": "array",
+            "items": {"type": "string"}
+        },
+        "staff": {
+            "type": "object",
+            "properties": {
+                "email": {"type": "string"}
+            }
+        },
+        "additional_medication": {
+            "type": "object",
+            "properties": {
+                "administered_volume": {"type": "number"},
+                "concentration": {"type": "number"},
+                "concentration_units": {"type": "string"},
+                "dose": {"type": "number"},
+                "dose_units": {"type": "string"},
+                "initials": {"type": "string"},
+                "location": {"type": "string"},
+                "medication": {"type": "string"},
+                "route": {"type": "string"},
+                "time_administered": {"type": "string", "format": "date-time"},
+                "total_amount": {"type": "number"}
+            }
+        },
+        "anesthetic_gases": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "inhalant_anesthetic_agent": {"type": "number"},
+                    "oxygen": {"type": "number"},
+                    "time_monitoring": {"type": "string", "format": "date-time"}
+                }
+            }
+        },
+        "birthdate": {"type": "string", "format": "date-time"},
+        "breed": {"type": "string"},
+        "dental_chartings": {"type": "array", "items": {"type": "object"}},
+        "fluid_cri_with_dilutions": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "anesthetic_additional_data_cris": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "cri_rate": {"type": "number"},
+                                "time_monitoring": {"type": "string", "format": "date-time"},
+                                "volume_administered": {"type": "number"}
+                            }
+                        }
+                    },
+                    "anesthetic_constant_rate_infusions": {"type": "array", "items": {"type": "object"}},
+                    "cri_medications": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "anesthetic_constant_rate_infusions": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "dose": {"type": "number"},
+                                            "time_monitoring": {"type": "string", "format": "date-time"}
+                                        }
+                                    }
+                                },
+                                "concentration": {"type": "number"},
+                                "concentration_units": {"type": "string"},
+                                "dose": {"type": "number"},
+                                "dose_units": {"type": "string"},
+                                "drug_volume_to_be_added": {"type": "number"},
+                                "max_dose": {"type": "number"},
+                                "max_drug_volume_to_be_added": {"type": "number"},
+                                "medication": {"type": "string"},
+                                "min_dose": {"type": "number"},
+                                "min_drug_volume_to_be_added": {"type": "number"},
+                                "post_anesthetic_constant_rate_infusions": {"type": "array", "items": {"type": "object"}},
+                                "total_volume_drawn": {"type": "number"}
+                            }
+                        }
+                    },
+                    "cri_name": {"type": "string"},
+                    "desired_diluent_and_drug_total_volume": {"type": "number"},
+                    "fluid_rate": {"type": "number"},
+                    "post_anesthetic_additional_data_cris": {"type": "array", "items": {"type": "object"}},
+                    "post_anesthetic_constant_rate_infusions": {"type": "array", "items": {"type": "object"}},
+                    "total_volume_administered": {"type": ["number", "null"]}
+                }
+            }
+        },
+        "fluid_cri_without_dilutions": {"type": "array", "items": {"type": "object"}},
+        "monitoring_vitals": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "diastolic_blood_pressure_doppler": {"type": ["number", "null"]},
+                    "diastolic_blood_pressure_oscillometric": {"type": ["number", "null"]},
+                    "mean_blood_pressure_doppler": {"type": ["number", "null"]},
+                    "mean_blood_pressure_oscillometric": {"type": ["number", "null"]},
+                    "systolic_blood_pressure_doppler": {"type": ["number", "null"]},
+                    "systolic_blood_pressure_oscillometric": {"type": ["number", "null"]},
+                    "temperature": {"type": ["number", "null"]},
+                    "time_monitoring": {"type": "string", "format": "date-time"}
+                }
+            }
+        },
+        "name": {"type": "string"},
+        "dental_overall_timer": {"type": "number"},
+        "dental_overall_timer_notes": {"type": ["string", "null"]},
+        "patient_procedures": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "end_time": {"type": "string", "format": "date-time"},
+                    "name": {"type": "string"},
+                    "start_time": {"type": "string", "format": "date-time"},
+                    "total_time": {"type": "string"}
+                }
+            }
+        },
+        "pre_anesthetic_medications": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "administered_volume": {"type": "number"},
+                    "concentration": {"type": "number"},
+                    "concentration_units": {"type": "string"},
+                    "dose": {"type": "number"},
+                    "dose_units": {"type": "string"},
+                    "initials": {"type": "string"},
+                    "location": {"type": "string"},
+                    "medication": {"type": "string"},
+                    "route": {"type": "string"},
+                    "time_administered": {"type": "string", "format": "date-time"},
+                    "total_amount": {"type": "number"}
+                }
+            }
+        },
+        "procedure_date": {"type": "string", "format": "date-time"},
+        "regional_blocks": {"type": "array", "items": {"type": "object"}},
+        "resuscitate": {"type": "boolean"},
+        "sex": {"type": "string"},
+        "spayed_or_neutered": {"type": "boolean"},
+        "species": {"type": "string"},
+        "weight": {"type": "number"}
+    }
+}
+               
