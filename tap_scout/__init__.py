@@ -47,7 +47,7 @@ def discover():
                 table=None,
                 row_count=None,
                 stream_alias=None,
-                replication_method=None,
+                replication_method="INCREMENTAL",
             )
         )
     return Catalog(streams)
