@@ -45,7 +45,7 @@ def stream(scout_url, api_key, appointment_ids):
                 "fluid_cri_without_dilutions": patient_data.get(
                     "fluidCriWithoutDilutions"
                 ),
-                "monitoring_vials": patient_data.get("monitoringVials"),
+                "monitoring_vials": patient_data.get("monitoringVitals"),
                 "name": patient_data.get("name"),
                 "overall_timer": patient_data.get("overallTimer"),
                 "overall_timer_notes": patient_data.get(
