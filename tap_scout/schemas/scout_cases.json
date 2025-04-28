@@ -115,8 +115,8 @@
             }
         },
         "name": {"type": "string"},
-        "dental_overall_timer": {"type": "number"},
-        "dental_overall_timer_notes": {"type": ["string", "null"]},
+        "overall_timer": {"type": "number"},
+        "overall_timer_notes": {"type": ["string", "null"]},
         "patient_procedures": {
             "type": "array",
             "items": {

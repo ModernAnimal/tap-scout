@@ -33,7 +33,7 @@ def stream(scout_url, api_key, appointment_ids):
                 "procedures": case.get("procedures"),
                 "staff": case.get("staff"),
                 "additional_medication": patient_data.get(
-                    "additionalMedication"
+                    "additionalMedications"
                 ),
                 "anesthetic_gases": patient_data.get("anestheticGases"),
                 "birthdate": patient_data.get("birthdate"),
@@ -45,7 +45,7 @@ def stream(scout_url, api_key, appointment_ids):
                 "fluid_cri_without_dilutions": patient_data.get(
                     "fluidCriWithoutDilutions"
                 ),
-                "monitoring_vials": patient_data.get("monitoringVitals"),
+                "monitoring_vitals": patient_data.get("monitoringVitals"),
                 "name": patient_data.get("name"),
                 "overall_timer": patient_data.get("overallTimer"),
                 "overall_timer_notes": patient_data.get(
