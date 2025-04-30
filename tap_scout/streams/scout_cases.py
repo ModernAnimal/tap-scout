@@ -53,7 +53,7 @@ def stream(scout_url, api_key, appointment_ids):
                 ),
                 "patient_procedures": patient_data.get("patientProcedures"),
                 "pre_anesthetic_medication": patient_data.get(
-                    "preAnestheticMedication"
+                    "preAnestheticMedications"
                 ),
                 "procedure_date": patient_data.get("procedure_date"),
                 "regional_blocks": patient_data.get("regionalBlocks"),
