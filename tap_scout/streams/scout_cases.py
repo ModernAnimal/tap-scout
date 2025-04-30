@@ -52,7 +52,7 @@ def stream(scout_url, api_key, appointment_ids):
                     "overallTimerNotes"
                 ),
                 "patient_procedures": patient_data.get("patientProcedures"),
-                "pre_anesthetic_medication": patient_data.get(
+                "pre_anesthetic_medications": patient_data.get(
                     "preAnestheticMedications"
                 ),
                 "procedure_date": patient_data.get("procedure_date"),
