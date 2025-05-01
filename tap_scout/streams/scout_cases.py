@@ -1,5 +1,6 @@
 import json
 import logging
+import time
 
 import singer
 
@@ -16,13 +17,15 @@ def stream(scout_url, api_key, appointment_ids):
     """
     for appointment_id in appointment_ids:
         case = scout_api(scout_url, api_key, appointment_id)
-        if case is None:
-            logging.info(
-                f"No data available for appointment ID: {appointment_id}"
-            )
+        if not case:  # Check if the response is empty or None
+            logging.error(f"Error: No data or invalid response for appointment_id: {appointment_id}")
             continue
-        else:
-            case = json.loads(case)
+
+        try:
+            case = json.loads(case)  # Attempt to parse the JSON
+        except json.JSONDecodeError as e:
+            logging.error(f"Unable to parse JSON for appointment_id: {appointment_id}. Error: {e}")
+            continue
 
         patient_data = case.get("patient")
 
@@ -66,5 +69,9 @@ def stream(scout_url, api_key, appointment_ids):
                 "weight": patient_data.get("weight")
             }
         )
+
+        # Rate limiting to prevent error of duplicate data
+        # being written for different appointment_ids
+        time.sleep(1)
 
     logging.info("Completed scout_cases.py")

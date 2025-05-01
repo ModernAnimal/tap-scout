@@ -18,7 +18,4 @@ def scout_api(scout_url, api_key, appointment_id):
     if response.status_code == 200:
         return response.json()
     else:
-        print(
-            f"Error: {response.status_code}, appointment_id: {appointment_id}"
-        )
         return None
