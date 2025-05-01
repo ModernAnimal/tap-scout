@@ -18,13 +18,15 @@ def stream(scout_url, api_key, appointment_ids):
     for appointment_id in appointment_ids:
         try:
             case = scout_api(scout_url, api_key, appointment_id)
-            if case is None:
-                logging.info(
-                    f"No data available for appointment ID: {appointment_id}"
-                )
+            if not case:  # Check if the response is empty or None
+                logging.error(f"Error: No data or invalid response for appointment_id: {appointment_id}")
                 continue
-            else:
-                case = json.loads(case)
+
+            try:
+                case = json.loads(case)  # Attempt to parse the JSON
+            except json.JSONDecodeError as e:
+                logging.error(f"Unable to parse JSON for appointment_id: {appointment_id}. Error: {e}")
+                continue
 
             patient_data = case.get("patient")
 
@@ -75,7 +77,7 @@ def stream(scout_url, api_key, appointment_ids):
 
         except Exception as e:
             logging.error(
-                f"Error processing appointment ID {appointment_id}: {e}",
+                f"Unexpected error for appointment_id: {appointment_id}. Error: {e}",
                 exc_info=True
             )
 
