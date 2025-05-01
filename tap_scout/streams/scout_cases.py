@@ -1,5 +1,6 @@
 import json
 import logging
+import time
 
 import singer
 
@@ -66,5 +67,9 @@ def stream(scout_url, api_key, appointment_ids):
                 "weight": patient_data.get("weight")
             }
         )
+
+        # Rate limiting to prevent error of duplicate data
+        # being written for different appointment_ids
+        time.sleep(1)
 
     logging.info("Completed scout_cases.py")
