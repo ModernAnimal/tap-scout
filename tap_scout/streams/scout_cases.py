@@ -55,6 +55,9 @@ def stream(scout_url, api_key, appointment_ids):
                     "overallTimerNotes"
                 ),
                 "patient_procedures": patient_data.get("patientProcedures"),
+                "post_anesthetic_vitals": patient_data.get(
+                    "postAnestheticVitals"
+                ),
                 "pre_anesthetic_medications": patient_data.get(
                     "preAnestheticMedications"
                 ),

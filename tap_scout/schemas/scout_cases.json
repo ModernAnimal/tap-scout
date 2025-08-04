@@ -129,6 +129,28 @@
                 }
             }
         },
+        "post_anesthetic_vitals": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "comment": {"type": "string"},
+                    "diastolic_blood_pressure_doppler": {"type": ["number", "null"]},
+                    "diastolic_blood_pressure_oscillometric": {"type": ["number", "null"]},
+                    "fluid_rate": {"type": ["number", "null"]},
+                    "heart_rate": {"type": "number"},
+                    "initials": {"type": "string"},
+                    "mean_blood_pressure_doppler": {"type": ["number", "null"]},
+                    "mean_blood_pressure_oscillometric": {"type": ["number", "null"]},
+                    "pain_score": {"type": "number"},
+                    "respiratory_rate": {"type": "number"},
+                    "systolic_blood_pressure_doppler": {"type": ["number", "null"]},
+                    "systolic_blood_pressure_oscillometric": {"type": ["number", "null"]},
+                    "temperature": {"type": "number"},
+                    "time_monitoring": {"type": "string", "format": "date-time"}
+                }
+            }
+        },
         "pre_anesthetic_medications": {
             "type": "array",
             "items": {
