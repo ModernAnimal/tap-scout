@@ -151,6 +151,20 @@
                 }
             }
         },
+        "pre_induction_vitals": {
+            "type": "object",
+            "properties": {
+                "blood_pressure": {"type": "string"},
+                "capillary_refill_times": {"type": "string"},
+                "doppler_blood_pressure": {"type": "string"},
+                "heart_rate": {"type": "number"},
+                "hydration": {"type": "string"},
+                "mucous_membranes": {"type": "string"},
+                "pain_score": {"type": "string"},
+                "respiratory_rate": {"type": "number"},
+                "temperature": {"type": "number"}
+            }
+        },
         "pre_anesthetic_medications": {
             "type": "array",
             "items": {

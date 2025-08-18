@@ -61,6 +61,7 @@ def stream(scout_url, api_key, appointment_ids):
                 "pre_anesthetic_medications": patient_data.get(
                     "preAnestheticMedications"
                 ),
+                "pre_induction_vitals": patient_data.get("preInductionVital"),
                 "procedure_date": patient_data.get("procedure_date"),
                 "regional_blocks": patient_data.get("regionalBlocks"),
                 "resuscitate": patient_data.get("resuscitate"),
