@@ -17,9 +17,10 @@ def stream(scout_url, api_key, appointment_ids):
     """
     for appointment_id in appointment_ids:
         case = scout_api(scout_url, api_key, appointment_id)
-        if not case:  # Check if the response is empty or None
-            logging.error(f"Error: No data or invalid response for appointment_id: {appointment_id}")
+        if case is None:
+            logging.warning(f"Timeout or error for appointment_id: {appointment_id}. Skipping.")
             continue
+        # ...existing code...
 
         try:
             case = json.loads(case)  # Attempt to parse the JSON
