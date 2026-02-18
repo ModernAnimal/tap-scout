@@ -1,6 +1,5 @@
 import httpx
 
-
 def get_headers(api_key):
     headers = {
         "Authorization": f'Bearer {api_key}',
@@ -10,8 +9,6 @@ def get_headers(api_key):
 
 
 def scout_api(scout_url, api_key, appointment_id):
-    import httpx
-    from httpx import ReadTimeout
     url = f"{scout_url}?appointment_id={appointment_id}"
     headers = get_headers(api_key)
     max_retries = 2
@@ -22,9 +19,11 @@ def scout_api(scout_url, api_key, appointment_id):
                 return response.json()
             else:
                 return None
-        except ReadTimeout:
+        except (httpx.ReadTimeout, httpx.ConnectTimeout, httpx.TimeoutException, httpx.HTTPError) as e:
             if attempt == max_retries - 1:
                 # Last attempt, fail gracefully
                 return None
-            # Otherwise, retry
             continue
+        except Exception as e:
+            # Catch-all for unexpected errors
+            return None
