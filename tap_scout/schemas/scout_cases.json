@@ -190,7 +190,12 @@
         "sex": {"type": "string"},
         "spayed_or_neutered": {"type": "boolean"},
         "species": {"type": "string"},
-        "weight": {"type": "number"}
+        "weight": {"type": "number"},
+        "intake_advanced_meds": {
+            "type": ["array", "null"],
+            "items": {"type": "string"},
+            "description": "List of advanced medications from intakeQuestion."
+        }
     }
 }
                

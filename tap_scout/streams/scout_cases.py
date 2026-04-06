@@ -20,7 +20,6 @@ def stream(scout_url, api_key, appointment_ids):
         if case is None:
             logging.warning(f"Timeout or error for appointment_id: {appointment_id}. Skipping.")
             continue
-        # ...existing code...
 
         try:
             case = json.loads(case)  # Attempt to parse the JSON
@@ -29,6 +28,10 @@ def stream(scout_url, api_key, appointment_ids):
             continue
 
         patient_data = case.get("patient")
+
+        intake_advanced_meds = None
+        if patient_data.get("intakeQuestion"):
+            intake_advanced_meds = patient_data["intakeQuestion"].get("advancedMedications")
 
         singer.write_record(
             "scout_cases",
@@ -71,7 +74,8 @@ def stream(scout_url, api_key, appointment_ids):
                 "spayed_or_neutered": patient_data.get(
                     "spayed_or_neutered"
                 ),
-                "weight": patient_data.get("weight")
+                "weight": patient_data.get("weight"),
+                "intake_advanced_meds": intake_advanced_meds
             }
         )
 
