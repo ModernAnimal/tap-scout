@@ -9,7 +9,7 @@ def get_headers(api_key):
 
 
 def scout_api(scout_url, api_key, appointment_id):
-    url = f"{scout_url}?appointment_id={appointment_id}"
+    url = f"{scout_url}?external_id={appointment_id}"
     headers = get_headers(api_key)
     max_retries = 2
     for attempt in range(max_retries):
