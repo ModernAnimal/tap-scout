@@ -1,4 +1,3 @@
-import json
 import logging
 import time
 
@@ -19,12 +18,6 @@ def stream(scout_url, api_key, appointment_ids):
         case = scout_api(scout_url, api_key, appointment_id)
         if case is None:
             logging.warning(f"Timeout or error for appointment_id: {appointment_id}. Skipping.")
-            continue
-
-        try:
-            case = json.loads(case)  # Attempt to parse the JSON
-        except json.JSONDecodeError as e:
-            logging.error(f"Unable to parse JSON for appointment_id: {appointment_id}. Error: {e}")
             continue
 
         patient_data = case.get("patient")
